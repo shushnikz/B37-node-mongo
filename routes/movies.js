@@ -64,7 +64,7 @@ router.delete("/:id",async(request,response)=>{
 // update a movie id
 router.put("/:id",async(request,response)=>{
     const {id}=request.params;
-    const updateMovieById=request.body;
+    const updateMovie=request.body;
     console.log(id);
     // const movie=movies.find((mv)=>mv.id==id);=>node
     // to connect with mongodb
