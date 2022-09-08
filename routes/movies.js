@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllMovies, addMovies, getMovieById, deleteMovieById } from "../helper.js";
+import { getAllMovies, addMovies, getMovieById, deleteMovieById, updateMovie } from "../helper.js";
 const router=express.Router();
 
 router.get("/",async(request,response)=>{
@@ -60,5 +60,17 @@ router.delete("/:id",async(request,response)=>{
   const movie= await deleteMovieById(id)
   response.send(movie)
 })
+
+// update a movie id
+router.put("/:id",async(request,response)=>{
+    const {id}=request.params;
+    const updateMovie=request.body;
+    console.log(id);
+    // const movie=movies.find((mv)=>mv.id==id);=>node
+    // to connect with mongodb
+    // db.movies.updateOne({id: "102"},{$set: updateMovie})
+    const result= await updateMovie(updateMovie,id)
+    response.send(result)
+  })
 
 export const moviesRouter=router
