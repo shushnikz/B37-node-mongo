@@ -6,6 +6,8 @@ import { MongoClient } from "mongodb";
 import   dotenv from 'dotenv';
 import { getAllMovies, addMovies, getMovieById, deleteMovieById } from "./helper.js";
 import { moviesRouter } from './routes/movies.js'
+import { userRouter } from './routes/user.js'
+import bcrypt from "bcrypt";
 
 dotenv.config()
 // console.log(process.env.MONGO_URL)
@@ -42,9 +44,13 @@ app.get("/",(request,response)=>{
 
 // specify movie router
 app.use('/movies',moviesRouter)
+app.use('/user',userRouter)
 
 // create a server port
 
 app.listen(PORT, ()=>console.log("Server started on port",PORT))
+
+
+
 
 

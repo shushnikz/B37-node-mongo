@@ -74,3 +74,8 @@ router.put("/:id",async(request,response)=>{
   })
 
 export const moviesRouter=router
+
+// validate username is already present
+// validate if password matches(check criteria like does it match the pattern or not)
+
+// store the user details=>userCollections=>username and password
