@@ -1,8 +1,9 @@
 import express from "express";
 import { getAllMovies, addMovies, getMovieById, deleteMovieById, updateMovieById } from "../helper.js";
 const router=express.Router();
+import { auth } from "../middleware/auth.js"
 
-router.get("/",async(request,response)=>{
+router.get("/",auth,async(request,response)=>{
     // const { language,rating } = request.query;
     // console.log(request.query,language);
     // let filteredMovies=movies;
@@ -38,7 +39,7 @@ router.post("/",express.json(),async(request,response)=>{
 // get id - /movies/id - /movies/100
 
 // Tak - to send only movies with the matched id
-router.get("/:id",async(request,response)=>{
+router.get("/:id", auth, async(request,response)=>{
     const {id}=request.params;
     console.log(id);
     // const movie=movies.find((mv)=>mv.id==id);=>node
