@@ -3,6 +3,7 @@ import { getAllMovies, addMovies, getMovieById, deleteMovieById, updateMovieById
 const router=express.Router();
 import { auth } from "../middleware/auth.js"
 
+
 router.get("/", async(request,response)=>{
     // const { language,rating } = request.query;
     // console.log(request.query,language);

@@ -8,11 +8,13 @@ import { getAllMovies, addMovies, getMovieById, deleteMovieById } from "./helper
 import { moviesRouter } from './routes/movies.js'
 import { userRouter } from './routes/user.js'
 import bcrypt from "bcrypt";
+import cors from "cors";
 
 dotenv.config()
 // console.log(process.env.MONGO_URL)
 
 const app=express();
+app.use(cors())
 const PORT=process.env.PORT;
 
 const MONGO_URL=process.env.MONGO_URL
